@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - Martini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List - Martini</h1>
+
+        <div class="add-todo-form">
+            <input type="text" id="todoTitle" placeholder="Titolo task..." required>
+            <textarea id="todoDescription" placeholder="Descrizione (opzionale)..." rows="2"></textarea>
+            <button id="addBtn">Aggiungi</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Tutte</button>
+            <button class="filter-btn" data-filter="active">Attive</button>
+            <button class="filter-btn" data-filter="completed">Completate</button>
+        </div>
+
+        <div id="todoList" class="todo-list"></div>
+
+        <div class="footer">
+            <span id="activeCount">0 task attive</span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

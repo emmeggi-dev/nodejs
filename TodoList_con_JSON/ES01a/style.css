@@ -1,0 +1,211 @@
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --success-color: #48bb78;
+    --danger-color: #f56565;
+    --text-color: #2d3748;
+    --bg-color: #f7fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.add-todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-todo-form input,
+.add-todo-form textarea {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.add-todo-form input:focus,
+.add-todo-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.add-todo-form button {
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.add-todo-form button:hover { opacity: 0.9; }
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover { border-color: var(--primary-color); color: var(--primary-color); }
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.todo-list { display: flex; flex-direction: column; gap: 12px; }
+
+.todo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg-color);
+    border-radius: 12px;
+    transition: all 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.todo-item:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+}
+
+.todo-item.completed .todo-title {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.todo-item.completed .todo-description {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    cursor: pointer;
+    accent-color: var(--success-color);
+}
+
+.todo-content { flex: 1; }
+
+.todo-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.todo-description {
+    font-size: 13px;
+    color: #718096;
+    margin-bottom: 4px;
+}
+
+.todo-date {
+    font-size: 11px;
+    color: #a0aec0;
+}
+
+.todo-actions { display: flex; gap: 6px; }
+
+.btn-delete {
+    padding: 6px 12px;
+    background: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: opacity 0.3s;
+}
+
+.btn-delete:hover { opacity: 0.8; }
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
+    color: #718096;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    color: #a0aec0;
+    font-size: 16px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--danger-color);
+}
+
+.status-dot.connected { background: var(--success-color); }
+
+.stats { text-align: center; font-size: 13px; color: #718096; margin-top: 8px; }
+
+@media (max-width: 480px) {
+    body { padding: 10px; }
+    .container { padding: 16px; }
+    .filters { flex-wrap: wrap; }
+}
